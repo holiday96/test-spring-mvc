@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/taglib.jsp" %>
+<%@ page import="com.springmvc.util.SecurityUtils" %>
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
 	<a class="navbar-brand mr-1" href="<c:url value='/admin' />">ADMIN SỊN SÒ</a>
@@ -52,6 +53,7 @@
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Something else here</a>
 			</div></li>
+			
 		<li class="nav-item dropdown no-arrow"><a
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -59,11 +61,11 @@
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="userDropdown">
-				<a class="dropdown-item" href="#">Settings</a> <a
-					class="dropdown-item" href="#">Activity Log</a>
+				<a class="dropdown-item" href="#">Welcome <%=SecurityUtils.getPrincipal().getFullName() %></a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#" data-toggle="modal"
 					data-target="#logoutModal">Logout</a>
-			</div></li>
+			</div>
+		</li>
 	</ul>
 </nav>
