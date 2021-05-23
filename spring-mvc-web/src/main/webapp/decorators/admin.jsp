@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/taglib.jsp"%>
-<c:url var="NewURL" value="/admin/news/edit" />
+<c:url var="NewURL" value='/admin/news'>
+	<c:param name="page" value="1" />
+	<c:param name="limit" value="2" />
+</c:url>
+<c:url var="EditURL" value="/admin/news/edit?type=edit" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +17,23 @@
 	href="<c:url value='/templates/admin/vendor/fontawesome-free/css/all.min.css' />"
 	rel="stylesheet" type="text/css">
 
-<!-- Page level plugin CSS-->
-<link
-	href="<c:url value='/templates/admin/vendor/datatables/dataTables.bootstrap4.css' />"
-	rel="stylesheet">
+<!--twbsPagination-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="<c:url value='/templates/admin/paging/jquery.twbsPagination.js' />"
+	type="text/javascript"></script>
 
 <!-- Custom styles for this template-->
 <link href="<c:url value='/templates/admin/css/sb-admin.css' />"
 	rel="stylesheet">
-
 </head>
 
 <body id="page-top">
 
-	<%@ include file="/commons/admin/header.jsp" %>
-	
+	<%@ include file="/commons/admin/header.jsp"%>
+
 	<div id="wrapper">
 
 		<!-- Sidebar -->
@@ -42,8 +48,8 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 					<h6 class="dropdown-header">Functions:</h6>
-					<a class="dropdown-item" href="<c:url value='/admin/news'/>">Show News List</a>
-					<a class="dropdown-item" href="${NewURL}?type=edit">Create</a>
+					<a class="dropdown-item" href="${NewURL}">Show
+						News List</a> <a class="dropdown-item" href="${EditURL}">Create</a>
 				</div></li>
 			<li class="nav-item"><a class="nav-link" href="charts.html">
 					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
@@ -57,7 +63,7 @@
 
 			<dec:body />
 
-			<%@ include file="/commons/admin/footer.jsp" %>
+			<%@ include file="/commons/admin/footer.jsp"%>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -94,21 +100,15 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script
-		src="<c:url value='/templates/admin/vendor/jquery/jquery.min.js' />"></script>
+	<%-- 		src="<c:url value='/templates/admin/vendor/jquery/jquery.min.js' />"></script> --%>
 	<script
 		src="<c:url value='/templates/admin/vendor/bootstrap/js/bootstrap.bundle.min.js' />"></script>
-
-	<!-- Core plugin JavaScript-->
 	<script
 		src="<c:url value='/templates/admin/vendor/jquery-easing/jquery.easing.min.js' />"></script>
 
-	<!-- Page level plugin JavaScript-->
-	<script
-		src="<c:url value='/templates/admin/vendor/chart.js/Chart.min.js' />"></script>
-
 	<!-- Custom scripts for all pages-->
 	<script src="<c:url value='/templates/admin/js/sb-admin.min.js' />"></script>
+
 
 </body>
 </html>

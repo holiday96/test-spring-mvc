@@ -102,7 +102,7 @@
                         error: function(error) {
                             window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
                         }
-                    })
+                    });
                 }
 
                 function updateNew(data) {
@@ -118,7 +118,7 @@
                         error: function(error) {
                         	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
                         }
-                    })
+                    });
                 }
             </script>
         </body>

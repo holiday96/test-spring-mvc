@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-    <%@ include file="/commons/taglib.jsp"%>
+<%@ include file="/commons/taglib.jsp"%>
         <c:url var="APIurl" value="/api-admin-new" />
-        <c:url var="NewURL" value="/admin-news" />
+        <c:url var="NewURL" value="/admin/news" />
         <!DOCTYPE html>
         <html>
 
@@ -16,7 +16,7 @@
                     ${messageResponse}
                 </div>
             </c:if>
-            <form action="#" id="formSubmit" method="get">
+            <form action="${NewURL}" id="formSubmit" method="get">
                 <div class="widget-box table-filter">
                     <div class="table-btn-controls">
                         <div class="pull-right tableTools-container">
@@ -64,19 +64,18 @@
                     </tbody>
                 </table>
 
-<!--                 <ul class="pagination" id="pagination"></ul> -->
-
-<!--                 <input type="hidden" value="" id="page" name="page" /> -->
-<!--                 <input type="hidden" value="" id="maxPageItem" name="maxPageItem" /> -->
+                <ul class="pagination" id="pagination"></ul>
+                
+                <input type="hidden" value="" id="page" name="page" />
+                <input type="hidden" value="" id="limit" name="limit" />
 <!--                 <input type="hidden" value="" id="sortName" name="sortName" /> -->
 <!--                 <input type="hidden" value="" id="sortBy" name="sortBy" /> -->
-                <input type="hidden" value="" id="type" name="type" />
+<!--                 <input type="hidden" value="" id="type" name="type" /> -->
             </form>
 
             <script type="text/javascript">
                 var totalPages = ${model.totalPage};
                 var currentPage = ${model.page};
-                var limit = 2;
                 $(function() {
                     window.pagObj = $('#pagination').twbsPagination({
                         totalPages: totalPages,
@@ -84,16 +83,14 @@
                         startPage: currentPage,
                         onPageClick: function(event, page) {
                             if (currentPage != page) {
-                                $('#maxPageItem').val(limit);
-                                $('#page').val(page);
-                                $('#sortName').val('title');
-                                $('#sortBy').val('desc');
-                                $('#type').val('list');
+                            	$('#limit').val(2);
+                            	$('#page').val(page);
                                 $('#formSubmit').submit();
                             }
                         }
                     });
                 });
+                
                 $('#btnDelete').click(function() {
                     var data = {};
                     var ids = $('tbody input[type=checkbox]:checked').map(function() {
@@ -115,7 +112,7 @@
                         error: function(error) {
                             window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
                         }
-                    })
+                    });
                 }
             </script>
         </body>
