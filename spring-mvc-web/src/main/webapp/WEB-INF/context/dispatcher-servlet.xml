@@ -39,4 +39,5 @@
 	</mvc:interceptors>
 	
 	<mvc:resources location="/templates/" mapping="/templates/**" />
+	<mvc:resources location="/ckeditor/" mapping="/ckeditor/**" />
 </beans>

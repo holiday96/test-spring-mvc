@@ -5,29 +5,32 @@
 	<c:param name="page" value="1" />
 	<c:param name="limit" value="2" />
 </c:url>
-<c:url var="EditURL" value="/admin/news/edit?type=edit" />
+<c:url var="EditURL" value="/admin/news/edit" />
 <!DOCTYPE html>
 <html>
 <head>
 
-<title><dec:title default="Admin Home 🥰🥰" /></title>
+	<title><dec:title default="Admin Home 🥰🥰" /></title>
 
-<!-- Custom fonts for this template-->
-<link
-	href="<c:url value='/templates/admin/vendor/fontawesome-free/css/all.min.css' />"
-	rel="stylesheet" type="text/css">
+	<!-- Custom fonts for this template-->
+	<link href="<c:url value='/templates/admin/vendor/fontawesome-free/css/all.min.css' />" rel="stylesheet" type="text/css">
 
-<!--twbsPagination-->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="<c:url value='/templates/admin/paging/jquery.twbsPagination.js' />"
-	type="text/javascript"></script>
+	<!--twbsPagination-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="<c:url value='/templates/admin/paging/jquery.twbsPagination.js' />" type="text/javascript"></script>
 
-<!-- Custom styles for this template-->
-<link href="<c:url value='/templates/admin/css/sb-admin.css' />"
-	rel="stylesheet">
+	<!-- Custom styles for this template-->
+	<link href="<c:url value='/templates/admin/css/sb-admin.css' />" rel="stylesheet">
+	
+	<!-- sweetalert2 -->
+	<link rel="stylesheet" href="<c:url value='/templates/admin/sweetalert2/sweetalert2.min.css' />">
+	<script src="<c:url value='/templates/admin/sweetalert2/sweetalert2.all.min.js' />" ></script>
+	<script src="<c:url value='/templates/admin/sweetalert2/sweetalert2.min.js' />"></script>
+		
+    <!--ckeditor-->
+    <script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
+    
 </head>
 
 <body id="page-top">
@@ -48,15 +51,21 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 					<h6 class="dropdown-header">Functions:</h6>
-					<a class="dropdown-item" href="${NewURL}">Show
-						News List</a> <a class="dropdown-item" href="${EditURL}">Create</a>
+					<a class="dropdown-item" href="${NewURL}">Show News List</a>
+					<a class="dropdown-item" href="${EditURL}">Create</a>
 				</div></li>
-			<li class="nav-item"><a class="nav-link" href="charts.html">
-					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
-			</a></li>
-			<li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="charts.html">
+					<i class="fas fa-fw fa-chart-area"></i>
+					<span>Charts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="tables.html">
+					<i class="fas fa-fw fa-table"></i>
+					<span>Tables</span>
+				</a>
+			</li>
 		</ul>
 
 		<div id="content-wrapper">
